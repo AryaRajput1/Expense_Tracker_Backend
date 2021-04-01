@@ -3,7 +3,7 @@ const Expense=new mongoose.Schema({
     
     note:String,
     money:Number,
-    type:String,
+    incomeType:String,
     });
 
 module.exports=mongoose.model('Expense',Expense);

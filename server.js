@@ -17,6 +17,16 @@ app.get('/data',(req,res)=>{
 res.send(data);
     })
 })
+app.delete('/data/delOne/:id',(req,res)=>{
+    const id=req.params.id;
+    Expense.deleteOne({"_id":id})
+    .then(resp=>res.send('success'));
+})
+app.delete('/data/delMany',(req,res)=>{
+    const id=req.params.id;
+    Expense.deleteMany({})
+    .then(resp=>res.send('success'));
+})
 app.post('/data',(req,res)=>{
     new Expense(req.body).save((err)=>{
         res.send('success');
